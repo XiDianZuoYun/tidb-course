@@ -301,6 +301,7 @@ func (s *tikvStore) GetMemCache() kv.MemManager {
 
 // Begin a global transaction.
 func (s *tikvStore) Begin() (kv.Transaction, error) {
+	logutil.BgLogger().Info("hello transaction")
 	txn, err := s.KVStore.Begin()
 	if err != nil {
 		return nil, derr.ToTiDBErr(err)
